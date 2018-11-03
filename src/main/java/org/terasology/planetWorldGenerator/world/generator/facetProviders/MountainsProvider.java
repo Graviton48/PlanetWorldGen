@@ -63,7 +63,7 @@ public class MountainsProvider implements ConfigurableFacetProvider {
     }
 
     private static class MountainsConfiguration implements Component {
-        @Range(min = 200, max = 500f, increment = 20f, precision = 1, description = "Mountain Height")
-        private float mountainHeight = 450;
+        @Range(min = 200, max = 500f, increment = 20f, precision = 2, description = "Mountain Height")
+        private float mountainHeight = 400;
     }
 }
