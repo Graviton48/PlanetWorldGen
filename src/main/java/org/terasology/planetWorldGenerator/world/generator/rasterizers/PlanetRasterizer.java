@@ -29,13 +29,14 @@ public class PlanetRasterizer implements WorldRasterizer {
         SurfaceHeightFacet surfaceHeightFacet = chunkRegion.getFacet(SurfaceHeightFacet.class);
         for (Vector3i position : chunkRegion.getRegion()) {
             float surfaceHeight = surfaceHeightFacet.getWorld(position.x, position.z);
-            if (position.y < surfaceHeight){
+            float blockHeight = position.y+chunk.getChunkWorldOffsetY(); // Accounts for chunks in y-axis.
+            if (blockHeight >= 200 && blockHeight < surfaceHeight){
                 chunk.setBlock(ChunkMath.calcBlockPos(position), snow);
             }
-            else if (position.y < surfaceHeight - 50) {
+            else if (blockHeight < 200) {
                 chunk.setBlock(ChunkMath.calcBlockPos(position), grass);
             }
-            else if (position.y < surfaceHeight - 100) {
+            else if (blockHeight <= 0 ) {
                 chunk.setBlock(ChunkMath.calcBlockPos(position), dirt);
             }
         }

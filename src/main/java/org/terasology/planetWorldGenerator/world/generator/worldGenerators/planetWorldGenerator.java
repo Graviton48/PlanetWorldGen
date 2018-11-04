@@ -26,6 +26,7 @@ public class planetWorldGenerator extends BaseFacetedWorldGenerator {
                 .addProvider(new PlanetProvider())
                 .addProvider(new SeaLevelProvider(0))
                 .addRasterizer(new PlanetRasterizer())
-                .addProvider(new MountainsProvider());
+                .addProvider(new MountainsProvider())
+                .addPlugins();
     }
 }
