@@ -9,7 +9,7 @@ import org.terasology.world.block.BlockManager;
 import org.terasology.world.chunks.CoreChunk;
 import org.terasology.world.generation.Region;
 import org.terasology.world.generation.WorldRasterizer;
-import org.terasology.world.generation.facets.SurfaceHeightFacet;
+import org.terasology.world.generation.facets.SurfaceHeightFacet;;
 
 
 public class PlanetRasterizer implements WorldRasterizer {
@@ -29,13 +29,13 @@ public class PlanetRasterizer implements WorldRasterizer {
         SurfaceHeightFacet surfaceHeightFacet = chunkRegion.getFacet(SurfaceHeightFacet.class);
         for (Vector3i position : chunkRegion.getRegion()) {
             float surfaceHeight = surfaceHeightFacet.getWorld(position.x, position.z);
-            if (position.y < surfaceHeight){
+            if (surfaceHeight >= 30){
                 chunk.setBlock(ChunkMath.calcBlockPos(position), snow);
             }
-            else if (position.y < surfaceHeight - 1) {
+            else if (surfaceHeight < 30 ) {
                 chunk.setBlock(ChunkMath.calcBlockPos(position), grass);
             }
-            else if (position.y < surfaceHeight - 3) {
+            else if (surfaceHeight < 10) {
                 chunk.setBlock(ChunkMath.calcBlockPos(position), dirt);
             }
         }
