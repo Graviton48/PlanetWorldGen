@@ -24,9 +24,8 @@ import org.terasology.utilities.procedural.SimplexNoise;
 import org.terasology.utilities.procedural.SubSampledNoise;
 import org.terasology.world.generation.*;
 import org.terasology.world.generation.facets.SurfaceHeightFacet;
-import org.terasology.world.generator.plugin.RegisterPlugin;
 
-@RegisterPlugin
+
 @Updates(@Facet(SurfaceHeightFacet.class))
 public class LakeProvider implements FacetProviderPlugin {
 

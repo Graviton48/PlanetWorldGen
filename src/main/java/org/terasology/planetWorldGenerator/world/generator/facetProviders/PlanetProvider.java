@@ -1,7 +1,11 @@
 package org.terasology.planetWorldGenerator.world.generator.facetProviders;
 import org.terasology.math.geom.BaseVector2i;
 import org.terasology.math.geom.Rect2i;
-import org.terasology.utilities.procedural.*;
+import org.terasology.math.geom.Vector2f;
+import org.terasology.utilities.procedural.BrownianNoise;
+import org.terasology.utilities.procedural.Noise;
+import org.terasology.utilities.procedural.SimplexNoise;
+import org.terasology.utilities.procedural.SubSampledNoise;
 import org.terasology.world.generation.Border3D;
 import org.terasology.world.generation.FacetProvider;
 import org.terasology.world.generation.GeneratingRegion;
@@ -16,7 +20,7 @@ public class PlanetProvider implements FacetProvider {
 
     @Override
     public void setSeed(long seed) {
-        surfaceNoise = new SimplexNoise(seed);
+        surfaceNoise = new SubSampledNoise(new BrownianNoise(new SimplexNoise(seed)), new Vector2f(0.01f, 0.01f), 1);
     }
 
     @Override

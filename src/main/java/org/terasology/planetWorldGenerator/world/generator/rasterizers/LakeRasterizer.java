@@ -25,10 +25,8 @@ import org.terasology.world.generation.Region;
 import org.terasology.world.generation.WorldRasterizerPlugin;
 import org.terasology.world.generation.facets.SeaLevelFacet;
 import org.terasology.world.generation.facets.SurfaceHeightFacet;
-import org.terasology.world.generator.plugin.RegisterPlugin;
 
 
-@RegisterPlugin
 public class LakeRasterizer implements WorldRasterizerPlugin{
     private Block water;
 
